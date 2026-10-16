@@ -27,24 +27,24 @@ export default function Login({ onLogin }) {
     setLoading(true);
 
     try {
-      // const response = await api.post("/login", {
-      //   email: form.email.trim().toLowerCase(),
-      //   password: form.password,
-      // });
+      const response = await api.post("/login", {
+        email: form.email.trim().toLowerCase(),
+        password: form.password,
+      });
 
 
-      const response = await api.post(
-  "/login",
-  JSON.stringify({
-    email: form.email.trim().toLowerCase(),
-    password: form.password,
-  }),
-  {
-    headers: {
-      "Content-Type": "text/plain",
-    },
-  }
-);
+//       const response = await api.post(
+//   "/login",
+//   JSON.stringify({
+//     email: form.email.trim().toLowerCase(),
+//     password: form.password,
+//   }),
+//   {
+//     headers: {
+//       "Content-Type": "text/plain",
+//     },
+//   }
+// );
       const data = response.data;
 
       if (!data.success || !data.token || !data.user) {
