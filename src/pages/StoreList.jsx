@@ -25,7 +25,7 @@ export default function StoreList() {
 
     try {
       const result = await getStores();
-      setStores(result.stores || []);
+      setStores(result.data || []);
     } catch (err) {
       setError(
         err.response?.data?.message ||
