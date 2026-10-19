@@ -107,21 +107,8 @@ export default function StoreList() {
             }
           </h3>
         </div>
-
-        <div className="rounded-2xl border border-slate-800 bg-[#0b1120] p-5">
-          <p className="text-sm text-slate-400">Provisioning</p>
-
-          <h3 className="mt-4 text-3xl font-bold text-amber-400">
-            {
-              stores.filter(
-                (store) =>
-                  (store.status || "").toLowerCase() ===
-                  "provisioning"
-              ).length
-            }
-          </h3>
-        </div>
-      </div>
+</div>
+       
 
       {/* Store table */}
       <section className="overflow-hidden rounded-2xl border border-slate-800 bg-[#0b1120]">
@@ -222,7 +209,7 @@ export default function StoreList() {
                   <tr>
                     <th className="px-6 py-4 font-medium">Store</th>
                     <th className="px-6 py-4 font-medium">Slug</th>
-                    <th className="px-6 py-4 font-medium">Status</th>
+                   
                     <th className="px-6 py-4 font-medium">Store ID</th>
                     <th className="px-6 py-4 text-right font-medium">
                       Action
@@ -259,13 +246,7 @@ export default function StoreList() {
                         {store.slug || "—"}
                       </td>
 
-                      <td className="px-6 py-5">
-                        <span
-                          className={`rounded-full border px-3 py-1.5 text-xs font-medium ${statusStyle(store.status)}`}
-                        >
-                          {store.status || "Unknown"}
-                        </span>
-                      </td>
+                      
 
                       <td className="px-6 py-5 text-slate-400">
                         {store.id}

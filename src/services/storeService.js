@@ -6,14 +6,8 @@ export const createStore = async (storeData) => {
     return response.data;
 };
 
-// Generate a test API key
-export const generateTestKey = async (storeId) => {
-    const response = await api.post(
-        `/generateTestKey/${encodeURIComponent(storeId)}`
-    );
 
-    return response.data;
-};
+
 
 // Get store details
 export const getStore = async (storeId) => {
@@ -38,3 +32,13 @@ export const getStores = async () => {
     const response = await api.get("/stores");
     return response.data;
 };
+
+// Generate a test API key
+export const generateTestKey = async (storeId) => {
+  const response = await api.post(
+    `/generateTestKey/${encodeURIComponent(storeId)}`
+  );
+
+  return response.data;
+};
+

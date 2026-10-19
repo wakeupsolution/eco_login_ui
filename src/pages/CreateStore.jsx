@@ -16,11 +16,13 @@ export default function CreateStore() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    name: "",
-    slug: "",
-    address: "",
-    phone: "",
-  });
+  name: "",
+  slug: "",
+  address: "",
+  phone: "",
+  gst_number: "",
+  aadhar_number: "",
+});
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -76,6 +78,8 @@ export default function CreateStore() {
         slug,
         address: form.address.trim(),
         phone: form.phone.trim(),
+          gst_number: form.gst_number.trim().toUpperCase(),
+    aadhar_number: form.aadhar_number.trim(),
       });
 
       if (!result.success || !result.store?.id) {
@@ -268,6 +272,74 @@ export default function CreateStore() {
                 </div>
               </div>
             </div>
+            {/* GST and Aadhaar */}
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+
+                  {/* GST Number */}
+
+                    <div>
+                      <label
+                        htmlFor="gst_number"
+                        className="mb-2 block text-sm font-medium text-gray-300"
+                      >
+                        GST Number
+                      </label>
+
+
+                  <input
+                    id="gst_number"
+                    name="gst_number"
+                    type="text"
+                    value={form.gst_number}
+                    onChange={handleChange}
+                    placeholder="Enter GST number"
+                    maxLength={15}
+                    autoComplete="off"
+                    className={inputClass}
+                  />
+
+                  <p className="mt-2 text-xs text-gray-500">
+                    Enter your 15-character GST identification number.
+                  </p>
+
+
+                    </div>
+
+                  {/* Aadhaar Number */}
+
+                    <div>
+                      <label
+                        htmlFor="aadhar_number"
+                        className="mb-2 block text-sm font-medium text-gray-300"
+                      >
+                        Aadhaar Number
+                      </label>
+
+
+                  <input
+                    id="aadhar_number"
+                    name="aadhar_number"
+                    type="password"
+                    value={form.aadhar_number}
+                    onChange={handleChange}
+                    placeholder="Enter 12-digit Aadhaar number"
+                    maxLength={12}
+                    inputMode="numeric"
+                    autoComplete="off"
+                    className={inputClass}
+                  />
+
+                  <p className="mt-2 text-xs text-gray-500">
+                    Enter your 12-digit Aadhaar number.
+                  </p>
+
+
+                    </div>
+
+                  </div>
+
+
 
             {/* Information notice */}
             <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4">
